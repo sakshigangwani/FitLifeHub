@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     },
     continueBtn: {
         backgroundColor: '#0F222D',
-        paddingVertical: 20,
+        paddingVertical: 18,
         paddingHorizontal: 40,
         width: '82%',
         borderRadius: 10
@@ -255,10 +255,16 @@ const styles = StyleSheet.create({
     },
     threeBtns: {
         flexDirection: 'row',
+        // marginTop: 20,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        // gap: 8,
+        // marginBottom: 100,
+        // width: '82%',
         marginTop: 20,
-        justifyContent: 'center',
         alignItems: 'center',
-        gap: 8
+        justifyContent: 'center',
+        gap: 8,
     },
     socialLogo: {
         height: 30,
@@ -266,18 +272,36 @@ const styles = StyleSheet.create({
     },
     btn: {
         backgroundColor: '#fff',
-        paddingHorizontal: 40,
-        paddingVertical: 20,
-        borderRadius: 10
-    },
-    footer: {
+        paddingHorizontal: 25,
+        paddingVertical: 12,
+        borderRadius: 10,
+        flexDirection: 'row',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingHorizontal: 30,
-        marginTop: 160
+        paddingVertical: 12,
+        borderRadius: 10
+    },
+    // footer: {
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     paddingHorizontal: 30,
+    //     marginTop: 160
+    // },
+    // footerText: {
+    //     textAlign: 'center',
+    //     fontSize: 12
+    // }
+    footer: {
+        alignItems: 'center',
+        padding: 20,
+        position: "absolute",
+        bottom: 14,
+        width: "100%"
     },
     footerText: {
         textAlign: 'center',
-        fontSize: 12
-    }
+        fontSize: 12,
+        color: '#2A3C47',
+    },
 })
