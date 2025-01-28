@@ -27,8 +27,8 @@ const SplashScreenComponent = () => {
         ]).start();
 
         setTimeout(() => {
-            navigation.replace('Data');  
-          }, 3500); 
+            navigation.replace('Login');  
+          }, 3000); 
           SplashScreen.hideAsync();
     }, [fadeAnim, popupAnim, navigation]);
 
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 50,
-        color: '#008080',
+        color: '#0F222D',
         fontWeight: 'bold'
     },
     headingCaption: {

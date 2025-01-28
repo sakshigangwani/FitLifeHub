@@ -4,8 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { TransitionSpecs, CardStyleInterpolators } from '@react-navigation/stack';
 
+//Screen Imports
 import SplashScreenComponent from './screens/SplashScreenComponent';
 import Data from './screens/Data';
+import Login from './screens/Login';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +26,7 @@ export default function App() {
         }}>
           <Stack.Screen name='Splash' component={SplashScreenComponent} options={{ headerShown: false }} />
           <Stack.Screen name='Data' component={Data} options={{ headerShown: false }} />
+          <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
