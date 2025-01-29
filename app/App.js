@@ -8,6 +8,7 @@ import { TransitionSpecs, CardStyleInterpolators } from '@react-navigation/stack
 import SplashScreenComponent from './screens/SplashScreenComponent';
 import Data from './screens/Data';
 import Login from './screens/Login';
+import Name from './screens/Name';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ export default function App() {
           <Stack.Screen name='Splash' component={SplashScreenComponent} options={{ headerShown: false }} />
           <Stack.Screen name='Data' component={Data} options={{ headerShown: false }} />
           <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
+          <Stack.Screen name='Name' component={Name} options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

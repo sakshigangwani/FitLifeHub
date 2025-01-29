@@ -33,7 +33,7 @@ const SplashScreenComponent = () => {
     }, [fadeAnim, popupAnim, navigation]);
 
     return (
-        <Animated.View style={[styles.container, , { opacity: fadeAnim }]}>
+        <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
             <LottieView
                 autoPlay
                 ref={animation}

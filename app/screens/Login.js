@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View, 
 import { SelectList } from "react-native-dropdown-select-list";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Login = () => {
+const Login = ({navigation}) => {
     const [countryCode, setCountryCode] = useState("+91");
 
     const countryCodes = [
@@ -31,6 +31,10 @@ const Login = () => {
                 })
             ]).start();
         }, [popupAnim, slideAnim]);
+
+    function pressHandle() {
+        navigation.navigate('Name');
+    }
     
     return (
         <View style={styles.container}>
@@ -83,7 +87,7 @@ const Login = () => {
                     <Text style={styles.receiveLabel}>Receive updates and reminders on Whatsapp</Text>
                 </View>
                 <View style={styles.continueContainer}>
-                    <TouchableOpacity style={styles.continueBtn}>
+                    <TouchableOpacity style={styles.continueBtn} onPress={pressHandle}>
                         <Text style={styles.continueText}>Continue</Text>
                     </TouchableOpacity>
                 </View>
