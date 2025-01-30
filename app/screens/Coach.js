@@ -1,18 +1,31 @@
 import { useEffect, useRef, useState } from "react";
-import { TouchableOpacity } from "react-native";
-import { View, Animated, StyleSheet, Text, Touchable } from "react-native";
+import { StyleSheet, View, Animated, Text, ScrollView, TouchableOpacity, FlatList } from "react-native";
+import { Checkbox } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Gender = ({navigation}) => {
+const DATA = [
+    { id: "1", title: "Coach Guidance", icon: "person" },
+    { id: "2", title: "SNAP", icon: "camera" },
+    { id: "3", title: "Diet Plan", icon: "local-dining" },
+    { id: "4", title: "Weight Loss", icon: "fitness-center" },
+    { id: "5", title: "Intermittent Fasting", icon: "timer" },
+    { id: "6", title: "Calorie Tracker", icon: "calculate" },
+    { id: "7", title: "Workouts and Yoga", icon: "sports-gymnastics" },
+
+]
+
+const Coach = () => {
     const [progressBarWidth, setProgressBarWidth] = useState(0); // Stores the full width of the progress bar
     const progressAnim = useRef(new Animated.Value(0)).current;
     const fadeAnim = useRef(new Animated.Value(0)).current;
-    const [selectedBox, setSelectedBox] = useState("");
+    const [checked, setChecked] = useState(false);
+    const [selectedItem, setSelectedItems] = useState([]);
+    const [checkedBox, setCheckedBox] = useState("");
 
     useEffect(() => {
         if (progressBarWidth > 0) {
             Animated.timing(progressAnim, {
-                toValue: progressBarWidth * 0.3,
+                toValue: progressBarWidth * 0.4,
                 duration: 1000,
                 useNativeDriver: false
             }).start();
@@ -22,20 +35,31 @@ const Gender = ({navigation}) => {
                 toValue: 1,
                 duration: 1000,
                 useNativeDriver: true,
-            })
+            }),
         ]).start();
     }, [progressBarWidth, fadeAnim]);
 
-    function handleGridSelect(gender){
-        setSelectedBox(gender);
+    const renderItem = ({ item }) => {
+        return (
+            <TouchableOpacity style={[styles.item, selectedItem.includes(item.id) && styles.selectedItem]} onPress={() => toggleSelection(item.id)} >
+                <Icon name={item.icon} size={24} color={selectedItem.includes(item.id) ? "#fff" : "#000000"} style={styles.icon} />
+                <Text style={[styles.text, selectedItem.includes(item.id) && styles.selectedText]}>{item.title}</Text>
+            </TouchableOpacity>
+        )
     }
 
-    function nextBtnHandle() {
-        navigation.navigate("Coach");
+    const toggleSelection = (itemId) => {
+        setSelectedItems(prevState => {
+            if(prevState.includes(itemId)){
+                return prevState.filter(id => id!==itemId)
+            }else{
+                return [...prevState, itemId];
+            }
+        })
     }
 
     return (
-        <View style={styles.genderContainer}>
+        <View style={styles.coachContainer}>
             <View
                 style={styles.progressBar}
                 onLayout={(event) => setProgressBarWidth(event.nativeEvent.layout.width)}
@@ -43,23 +67,20 @@ const Gender = ({navigation}) => {
                 <Animated.View style={[styles.progress, { width: progressAnim }]} />
             </View>
             <Animated.View style={[styles.greetingsContainer, { opacity: fadeAnim }]}>
-                <Text style={styles.greetingsText}>What's your biological sex?</Text>
+                <Text style={styles.greetingsText}>What are you looking for?</Text>
                 <Text style={styles.greetingsCaption}>
-                    We support all forms of gender expression. However, we need this to calculate your body metrics.
+                    Selecting one or more options would help us tailor your experience.
                 </Text>
             </Animated.View>
-            <Animated.View style={[styles.genderGrid, { opacity: fadeAnim }]}>
-                <TouchableOpacity style={[styles.maleBtn, selectedBox === "Male" && styles.selectedBtn]} onPress={() => handleGridSelect("Male")}>
-                    <Icon name="male" size={50} color={selectedBox === "Male" ? "#fff" : "#000000"} />
-                    <Text style={[styles.genderText, selectedBox === "Male" && styles.selectedText]}>Male</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.femaleBtn, selectedBox === "Female" && styles.selectedBtn]} onPress={() => handleGridSelect("Female")}>
-                    <Icon name="female" size={50} color={selectedBox === "Female" ? "#fff" : "#000000"} />
-                    <Text style={[styles.genderText, selectedBox === "Female" && styles.selectedText]}>Female</Text>
-                </TouchableOpacity>
+            <Animated.View style={[styles.container, {opacity: fadeAnim}]}>
+                <FlatList
+                    data={DATA}
+                    keyExtractor={(item) => item.id}
+                    renderItem={renderItem}
+                />
             </Animated.View>
             <View style={styles.nextBtnContainer}>
-                <TouchableOpacity style={styles.nextBtn} onPress={nextBtnHandle}>
+                <TouchableOpacity style={styles.nextBtn}>
                     <Text style={styles.nextBtnText}>Next</Text>
                 </TouchableOpacity>
             </View>
@@ -67,14 +88,15 @@ const Gender = ({navigation}) => {
     )
 }
 
-export default Gender;
+export default Coach;
 
 const styles = StyleSheet.create({
-    genderContainer: {
+    coachContainer: {
         flex: 1,
         backgroundColor: "#0F222D",
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 100
     },
     progressBar: {
         width: "55%",
@@ -104,34 +126,30 @@ const styles = StyleSheet.create({
         marginHorizontal: 24,
         color: "#EBE7D9"
     },
-    genderGrid: {
+    scrollContainer: {
+        flexGrow: 1,
+        alignItems: 'center',
+        paddingBottom: 100,
+    },
+    container: {
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingTop: 35,
+    },
+    item: {
         flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 15,
-        marginTop: 20
-    },
-    maleBtn: {
-        flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#fff",
-        paddingHorizontal: 40,
-        paddingVertical: 30,
-        borderRadius: 10
-    },
-    femaleBtn: {
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        paddingHorizontal: 40,
-        paddingVertical: 30,
-        borderRadius: 10
+        padding: 15,
+        marginBottom: 10,
+        borderRadius: 10,
+        gap: 10,
+        width: "100%",
+        paddingRight: 130
     },
     nextBtnContainer: {
         position: "absolute",
-        bottom: 60,
+        bottom: 50,
         alignSelf: "center",
     },
     nextBtn: {
@@ -145,12 +163,12 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         color: "#0F222D"
     },
-    selectedBtn: {
+    selectedItem: {
         backgroundColor: "#E82561",
     },
     selectedText: {
         color: "#fff",
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: "bold"
     }
-})
+});
