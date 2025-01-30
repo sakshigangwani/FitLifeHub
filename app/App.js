@@ -9,6 +9,7 @@ import SplashScreenComponent from './screens/SplashScreenComponent';
 import Data from './screens/Data';
 import Login from './screens/Login';
 import Name from './screens/Name';
+import Location from './screens/Location';
 
 const Stack = createStackNavigator();
 
@@ -18,17 +19,12 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{
           headerShown: false,  // Hide the header
-          gestureEnabled: true, // Enable swipe gesture
-          cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS, // Custom transition from bottom to top
-          transitionSpec: {
-            open: TransitionSpecs.TransitionIOSSpec,
-            close: TransitionSpecs.TransitionIOSSpec,
-          },
         }}>
           <Stack.Screen name='Splash' component={SplashScreenComponent} options={{ headerShown: false }} />
           <Stack.Screen name='Data' component={Data} options={{ headerShown: false }} />
           <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
           <Stack.Screen name='Name' component={Name} options={{headerShown: false}}/>
+          <Stack.Screen name='Location' component={Location} options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

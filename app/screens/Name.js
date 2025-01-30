@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, KeyboardAvoidingView, Platform, Animated } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Name = () => {
+const Name = ({navigation}) => {
     const progressAnim = useRef(new Animated.Value(0)).current; // Start with width 0
     const [progressBarWidth, setProgressBarWidth] = useState(0); // Stores the full width of the progress bar
     const fadeAnim = useRef(new Animated.Value(0)).current;  
@@ -23,6 +23,10 @@ const Name = () => {
             })
         ]).start();
     }, [progressBarWidth, fadeAnim]); 
+
+    function nextPressHandle() {
+        navigation.navigate("Location");
+    }
 
     return (
         <KeyboardAvoidingView
@@ -60,7 +64,7 @@ const Name = () => {
                 </Animated.View>
             </ScrollView>
             <View style={styles.nextBtnContainer}>
-                <TouchableOpacity style={styles.nextBtn}>
+                <TouchableOpacity style={styles.nextBtn} onPress={nextPressHandle}>
                     <Text style={styles.nextBtnText}>Next</Text>
                 </TouchableOpacity>
             </View>
