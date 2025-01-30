@@ -18,7 +18,7 @@ const cities = [
     { name: "San Francisco", icon: "business" },
 ];
 
-const Location = () => {
+const Location = ({navigation}) => {
     const progressAnim = useRef(new Animated.Value(0)).current;
     const slideAnim = useRef(new Animated.Value(800)).current;
     const popupAnim = useRef(new Animated.Value(0)).current;
@@ -64,6 +64,10 @@ const Location = () => {
     function handleCitySelect(cityname) {
         setSelectedCity(cityname);
         setCitySelected(true);
+    }
+
+    function nextBtnHandle() {
+        navigation.navigate("Gender");
     }
 
     return (
@@ -240,7 +244,7 @@ const Location = () => {
                                 <Text style={styles.radioButtonLabel}>Other</Text>
                             </View>
                             <View style={styles.nextBtnContainer}>
-                                <TouchableOpacity style={styles.nextBtn}>
+                                <TouchableOpacity style={styles.nextBtn} onPress={nextBtnHandle}>
                                     <Text style={styles.nextBtnText}>Next</Text>
                                 </TouchableOpacity>
                             </View>

@@ -10,6 +10,7 @@ import Data from './screens/Data';
 import Login from './screens/Login';
 import Name from './screens/Name';
 import Location from './screens/Location';
+import Gender from './screens/Gender';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ export default function App() {
           <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
           <Stack.Screen name='Name' component={Name} options={{headerShown: false}}/>
           <Stack.Screen name='Location' component={Location} options={{headerShown: false}}/>
+          <Stack.Screen name='Gender' component={Gender} options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
