@@ -14,7 +14,7 @@ const DATA = [
 
 ]
 
-const Coach = () => {
+const Coach = ({navigation}) => {
     const [progressBarWidth, setProgressBarWidth] = useState(0); // Stores the full width of the progress bar
     const progressAnim = useRef(new Animated.Value(0)).current;
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -58,6 +58,10 @@ const Coach = () => {
         })
     }
 
+    function nextBtn() {
+        navigation.navigate("Age");
+    }
+
     return (
         <View style={styles.coachContainer}>
             <View
@@ -80,7 +84,7 @@ const Coach = () => {
                 />
             </Animated.View>
             <View style={styles.nextBtnContainer}>
-                <TouchableOpacity style={styles.nextBtn}>
+                <TouchableOpacity style={styles.nextBtn} onPress={nextBtn}>
                     <Text style={styles.nextBtnText}>Next</Text>
                 </TouchableOpacity>
             </View>
