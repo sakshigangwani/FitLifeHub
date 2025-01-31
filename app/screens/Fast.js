@@ -4,16 +4,17 @@ import { Text } from "react-native";
 import { Animated, View, StyleSheet } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Active = ({navigation}) => {
+const Fast = ({navigation}) => {
     const progressAnim = useRef(new Animated.Value(0)).current; // Start with width 0
     const [progressBarWidth, setProgressBarWidth] = useState(0); // Stores the full width of the progress bar
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const [selectedBox, setSelectedBox] = useState("");
+    const [selectedCaption, setSelectedCaption] = useState("Relaxed");
 
     useEffect(() => {
         if (progressBarWidth > 0) {
             Animated.timing(progressAnim, {
-                toValue: progressBarWidth * 0.6,
+                toValue: progressBarWidth * 1,
                 duration: 1000,
                 useNativeDriver: false
             }).start();
@@ -28,11 +29,11 @@ const Active = ({navigation}) => {
     }, [progressBarWidth, fadeAnim]);
 
     function nextPressHandle() {
-        navigation.navigate("Tall");
+        navigation.navigate("Target");
     }
 
     function handleBox(event) {
-        setSelectedBox(event);
+        setSelectedCaption(event);
     }
 
     return (
@@ -44,38 +45,42 @@ const Active = ({navigation}) => {
                 <Animated.View style={[styles.progress, { width: progressAnim }]} />
             </View>
             <Animated.View style={[styles.greetingsContainer, { opacity: fadeAnim }]}>
-                <Text style={styles.greetingsText}>How active are you?</Text>
+                <Text style={styles.greetingsText}>How fast do you want to reach your goal?</Text>
                 <Text style={styles.greetingsCaption}>
-                    Based on your lifestyle, we can assess your daily calorie requirements.
+                    {selectedCaption === "Relaxed" && <Text>This is a good sustainable pace to reach your goal weight</Text>}
+                    {selectedCaption === "Gradual" && <Text>This is a good pace, but you would need to work a bit harder</Text>}
+                    {selectedCaption === "Steady" && <Text>At this pace, it can get tough, but with the right discipline, you can do it.</Text>}
+                    {selectedCaption === "Rapid" && <Text>This pace will require extreme commitment!</Text>}
+
                 </Text>
             </Animated.View>
             <Animated.View style={[styles.activeButtons, { opacity: fadeAnim }]}>
-                <TouchableOpacity style={[styles.activeBtn, selectedBox === "chair" && styles.selectedBox]} onPress={() => handleBox('chair')}>
-                    <Icon name="chair" size={24} color="#0F222D" />
+                <TouchableOpacity style={[styles.activeBtn, selectedCaption === "Relaxed" && styles.selectedBox]} onPress={() => handleBox('Relaxed')}>
+                    <Icon name="spa" size={24} color="#0F222D" />
                     <View style={styles.activeText}>
-                        <Text style={[styles.heading, selectedBox === "chair" && styles.selectedHeading]}>Mostly Sitting</Text>
-                        <Text style={selectedBox === "chair" && styles.selectedCaption}>Seated work, low movement</Text>
+                        <Text style={[styles.heading, selectedCaption === "Relaxed" && styles.selectedHeading]}>Relaxed</Text>
+                        <Text style={selectedCaption === "Relaxed" && styles.selectedCaption}>0.25 kg per week</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.activeBtn, selectedBox === "person" && styles.selectedBox]} onPress={() => handleBox('person')}>
-                    <Icon name="person" size={24} color="#0F222D" />
-                    <View style={styles.activeText}>
-                        <Text style={[styles.heading, selectedBox === "person" && styles.selectedHeading]}>Often Standing</Text>
-                        <Text style={selectedBox === "person" && styles.selectedCaption}>Standing work, occasional walking</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.activeBtn, selectedBox === "walk" && styles.selectedBox]} onPress={() => handleBox('walk')}>
+                <TouchableOpacity style={[styles.activeBtn, selectedCaption === "Gradual" && styles.selectedBox]} onPress={() => handleBox('Gradual')}>
                     <Icon name="directions-walk" size={24} color="#0F222D" />
                     <View style={styles.activeText}>
-                        <Text style={[styles.heading, selectedBox === "walk" && styles.selectedHeading]}>Regularly Walking</Text>
-                        <Text style={selectedBox === "walk" && styles.selectedCaption}>Frequent walking, steady activity</Text>
+                        <Text style={[styles.heading, selectedCaption === "Gradual" && styles.selectedHeading]}>Gradual</Text>
+                        <Text style={selectedCaption === "Gradual" && styles.selectedCaption}>0.5 kg per week</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.activeBtn, selectedBox === "work" && styles.selectedBox]} onPress={() => handleBox('work')}>
-                    <Icon name="sports-gymnastics" size={24} color="#0F222D" />
+                <TouchableOpacity style={[styles.activeBtn, selectedCaption === "Steady" && styles.selectedBox]} onPress={() => handleBox('Steady')}>
+                    <Icon name="accessibility" size={24} color="#0F222D" />
                     <View style={styles.activeText}>
-                        <Text style={[styles.heading, selectedBox === "work" && styles.selectedHeading]}>Physically Intense Work</Text>
-                        <Text style={selectedBox === "work" && styles.selectedCaption}>Heavy labor, high exertion</Text>
+                        <Text style={[styles.heading, selectedCaption === "Steady" && styles.selectedHeading]}>Steady</Text>
+                        <Text style={selectedCaption === "Steady" && styles.selectedCaption}>0.75 kg per week</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.activeBtn, selectedCaption === "Rapid" && styles.selectedBox]} onPress={() => handleBox('Rapid')}>
+                    <Icon name="rocket" size={24} color="#0F222D" />
+                    <View style={styles.activeText}>
+                        <Text style={[styles.heading, selectedCaption === "Rapid" && styles.selectedHeading]}>Rapid</Text>
+                        <Text style={selectedCaption === "Rapid" && styles.selectedCaption}>1.0 kg per week</Text>
                     </View>
                 </TouchableOpacity>
             </Animated.View>
@@ -88,7 +93,7 @@ const Active = ({navigation}) => {
     )
 }
 
-export default Active;
+export default Fast;
 
 const styles = StyleSheet.create({
     activeContainer: {
@@ -114,10 +119,11 @@ const styles = StyleSheet.create({
         marginTop: 25
     },
     greetingsText: {
-        fontSize: 27,
+        fontSize: 25,
         fontWeight: "600",
         marginBottom: 16,
-        color: "#EBE7D9"
+        color: "#EBE7D9",
+        textAlign: "center"
     },
     greetingsCaption: {
         fontSize: 14,

@@ -14,27 +14,36 @@ import Gender from './screens/Gender';
 import Coach from './screens/Coach';
 import Age from './screens/Age';
 import Active from './screens/Active';
+import Tall from './screens/Tall';
+import Weight from './screens/Weight';
+import Fast from './screens/Fast';
+import Target from './screens/Target';
+import { UserProvider } from './context/UserContext';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{
-          headerShown: false,  // Hide the header
-        }}>
-          <Stack.Screen name='Splash' component={SplashScreenComponent} options={{ headerShown: false }} />
-          <Stack.Screen name='Data' component={Data} options={{ headerShown: false }} />
-          <Stack.Screen name='Login' component={Login} options={{headerShown:false}}/>
-          <Stack.Screen name='Name' component={Name} options={{headerShown: false}}/>
-          <Stack.Screen name='Location' component={Location} options={{headerShown: false}}/>
-          <Stack.Screen name='Gender' component={Gender} options={{headerShown: false}}/>
-          <Stack.Screen name='Coach' component={Coach} options={{headerShown: false}}/>
-          <Stack.Screen name='Age' component={Age} options={{headerShown: false}}/>
-          <Stack.Screen name='Active' component={Active} options={{headerShown: false}}/>
-        </Stack.Navigator>
-      </NavigationContainer>
+      <UserProvider>  {/* Wrap the whole navigation stack inside UserProvider */}
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='Splash' component={SplashScreenComponent} />
+            <Stack.Screen name='Data' component={Data} />
+            <Stack.Screen name='Login' component={Login} />
+            <Stack.Screen name='Name' component={Name} />
+            <Stack.Screen name='Location' component={Location} />
+            <Stack.Screen name='Gender' component={Gender} />
+            <Stack.Screen name='Coach' component={Coach} />
+            <Stack.Screen name='Age' component={Age} />
+            <Stack.Screen name='Active' component={Active} />
+            <Stack.Screen name='Tall' component={Tall} />
+            <Stack.Screen name='Weight' component={Weight} />
+            <Stack.Screen name='Fast' component={Fast} />
+            <Stack.Screen name='Target' component={Target} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </UserProvider> {/* Close the UserProvider here */}
     </SafeAreaProvider>
   );
 }
