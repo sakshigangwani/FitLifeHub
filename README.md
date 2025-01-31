@@ -37,9 +37,8 @@
 
 ## 📸 Screenshots
 
-![Home](./app/assets/images/Login.jpeg)
-<!-- ![Data Pages](./app/assets/images/Screenshot1.png)
-![Data Pages](./app/assets/images/Screenshot2.png) -->
+![Screenshot1](https://github.com/user-attachments/assets/939813c2-c333-4f0f-a2ef-3789472b1059)
+![Screenshot2](https://github.com/user-attachments/assets/5343694e-c1d3-4911-a899-4a6ba163e063)
 
 ## 🔥 Upcoming Features
 
