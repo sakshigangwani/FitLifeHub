@@ -1,6 +1,6 @@
 # FitLifeHub
 
-![FitLifeHub Banner](images/logo_wix.png)
+![FitLifeHub Banner](./app/assets/images/logo_wix.png)
 
 **FitLifeHub** is your ultimate fitness companion, designed to help you track workouts, monitor nutrition, and maintain a healthy lifestyle. The app integrates personalized plans, goal tracking, and insightful analytics to enhance your fitness journey.
 
