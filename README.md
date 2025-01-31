@@ -37,7 +37,7 @@
 
 ## 📸 Screenshots
 
-![Home](./app/assets/images/login.png)
+![Home](./app/assets/images/Login.jpeg)
 ![Data Pages](./app/assets/images/Screenshot1.png)
 ![Data Pages](./app/assets/images/Screenshot2.png)
 
