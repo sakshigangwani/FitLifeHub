@@ -30,8 +30,6 @@
 
 - **Frontend**: React Native
 - **Backend**: Firebase (Firestore, Authentication, Cloud Functions)
-- **State Management**: Redux
-- **UI Components**: React Native Paper
 - **Authentication**: Firebase Auth
 - **Database**: Firestore
 
