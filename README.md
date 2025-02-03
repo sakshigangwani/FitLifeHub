@@ -30,8 +30,6 @@
 
 - **Frontend**: React Native
 - **Backend**: Firebase (Firestore, Authentication, Cloud Functions)
-- **State Management**: Redux
-- **UI Components**: React Native Paper
 - **Authentication**: Firebase Auth
 - **Database**: Firestore
 
@@ -48,7 +46,7 @@
 
 ## 📜 License
 
-This project is licensed under the **MIT License**.
+© 2025 Sakshi Gangwani. All rights reserved.
 
 ---
 
