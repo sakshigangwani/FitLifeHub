@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView, KeyboardAvoidingView, Platform, Animated } from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useUser } from '../context/UserContext'; 
 
 const Name = ({navigation}) => {
+    const { name, setName } = useUser(); 
     const progressAnim = useRef(new Animated.Value(0)).current; // Start with width 0
     const [progressBarWidth, setProgressBarWidth] = useState(0); // Stores the full width of the progress bar
     const fadeAnim = useRef(new Animated.Value(0)).current;  
+    const [selectedName, setSelectedName] = useState(name || " ");
 
     useEffect(() => {
         if (progressBarWidth > 0) {
@@ -25,6 +28,7 @@ const Name = ({navigation}) => {
     }, [progressBarWidth, fadeAnim]); 
 
     function nextPressHandle() {
+        setName(selectedName);
         navigation.navigate("Location");
     }
 
@@ -56,6 +60,7 @@ const Name = ({navigation}) => {
                         style={styles.input}
                         placeholder="Enter Your Name"
                         keyboardType="default"
+                        onChangeText={(text) => setSelectedName(text)}
                     />
                 </Animated.View>
                 <Animated.View style={[styles.referralContainer, { opacity: fadeAnim }]}>

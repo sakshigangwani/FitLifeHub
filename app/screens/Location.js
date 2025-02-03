@@ -18,7 +18,7 @@ const cities = [
     { name: "San Francisco", icon: "business" },
 ];
 
-const Location = ({navigation}) => {
+const Location = ({ navigation }) => {
     const progressAnim = useRef(new Animated.Value(0)).current;
     const slideAnim = useRef(new Animated.Value(800)).current;
     const popupAnim = useRef(new Animated.Value(0)).current;
@@ -50,7 +50,7 @@ const Location = ({navigation}) => {
                 useNativeDriver: true,
             }),
         ]).start();
-        
+
         if (citySelected) {
             // Start the animation when a city is selected
             Animated.timing(slideAnim, {
@@ -125,132 +125,132 @@ const Location = ({navigation}) => {
                         )}
                     />
                 </Animated.View>) : (
-                <Animated.View style={[styles.languageContainer,{
-                    transform: [{
-                        translateY: slideAnim, 
-                    }],
-                }]}
-                >
-                    <View>
-                        <Text style={styles.languageHeading}>Which language do you prefer to speak in?</Text>
-                        <Text style={styles.languageCaption}>This does not affect your app language</Text>
-                        <View style={styles.radioButtonContainer}>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="English"
-                                    status={checked === 'English' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('English')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>English</Text>
+                    <Animated.View style={[styles.languageContainer, {
+                        transform: [{
+                            translateY: slideAnim,
+                        }],
+                    }]}
+                    >
+                        <View>
+                            <Text style={styles.languageHeading}>Which language do you prefer to speak in?</Text>
+                            <Text style={styles.languageCaption}>This does not affect your app language</Text>
+                            <View style={styles.radioButtonContainer}>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="English"
+                                        status={checked === 'English' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('English')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>English</Text>
+                                </View>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Hindi"
+                                        status={checked === 'Hindi' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Hindi')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Hindi (हिन्दी)</Text>
+                                </View>
                             </View>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Hindi"
-                                    status={checked === 'Hindi' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Hindi')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Hindi (हिन्दी)</Text>
+                            <View style={styles.radioButtonContainer}>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Tamil"
+                                        status={checked === 'Tamil' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Tamil')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Tamil(தமிழ்)</Text>
+                                </View>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Telugu"
+                                        status={checked === 'Telugu' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Telugu')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Telugu (తెలుగు)</Text>
+                                </View>
+                            </View>
+                            <View style={styles.radioButtonContainer}>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Kannada"
+                                        status={checked === 'Kannada' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Kannada')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Kannada (ಕನ್ನಡ)</Text>
+                                </View>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Malayalam"
+                                        status={checked === 'Malayalam' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Malayalam')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Malayalam (മലയാളം)</Text>
+                                </View>
+                            </View>
+                            <View style={styles.radioButtonContainer}>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Gujarati"
+                                        status={checked === 'Gujarati' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Gujarati')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Gujarati (ગુજરાતી)</Text>
+                                </View>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Bengali"
+                                        status={checked === 'Bengali' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Bengali')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Bengali (বাংলা)</Text>
+                                </View>
+                            </View>
+                            <View style={styles.radioButtonContainer}>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Marathi"
+                                        status={checked === 'Marathi' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Marathi')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Marathi (मराठी)</Text>
+                                </View>
+                                <View style={styles.radioButtonItem}>
+                                    <RadioButton
+                                        value="Other"
+                                        status={checked === 'Other' ? 'checked' : 'unchecked'}
+                                        onPress={() => setChecked('Other')}
+                                        uncheckedColor="#000000"
+                                        color="#E82561"
+                                    />
+                                    <Text style={styles.radioButtonLabel}>Other</Text>
+                                </View>
+                                <View style={styles.nextBtnContainer}>
+                                    <TouchableOpacity style={styles.nextBtn} onPress={nextBtnHandle}>
+                                        <Text style={styles.nextBtnText}>Next</Text>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
                         </View>
-                        <View style={styles.radioButtonContainer}>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Tamil"
-                                    status={checked === 'Tamil' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Tamil')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Tamil(தமிழ்)</Text>
-                            </View>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Telugu"
-                                    status={checked === 'Telugu' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Telugu')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Telugu (తెలుగు)</Text>
-                            </View>
-                        </View>
-                        <View style={styles.radioButtonContainer}>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Kannada"
-                                    status={checked === 'Kannada' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Kannada')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Kannada (ಕನ್ನಡ)</Text>
-                            </View>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Malayalam"
-                                    status={checked === 'Malayalam' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Malayalam')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Malayalam (മലയാളം)</Text>
-                            </View>
-                        </View>
-                        <View style={styles.radioButtonContainer}>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Gujarati"
-                                    status={checked === 'Gujarati' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Gujarati')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Gujarati (ગુજરાતી)</Text>
-                            </View>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Bengali"
-                                    status={checked === 'Bengali' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Bengali')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Bengali (বাংলা)</Text>
-                            </View>
-                        </View>
-                        <View style={styles.radioButtonContainer}>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Marathi"
-                                    status={checked === 'Marathi' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Marathi')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Marathi (मराठी)</Text>
-                            </View>
-                            <View style={styles.radioButtonItem}>
-                                <RadioButton
-                                    value="Other"
-                                    status={checked === 'Other' ? 'checked' : 'unchecked'}
-                                    onPress={() => setChecked('Other')}
-                                    uncheckedColor="#000000"
-                                    color="#E82561"
-                                />
-                                <Text style={styles.radioButtonLabel}>Other</Text>
-                            </View>
-                            <View style={styles.nextBtnContainer}>
-                                <TouchableOpacity style={styles.nextBtn} onPress={nextBtnHandle}>
-                                    <Text style={styles.nextBtnText}>Next</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </Animated.View>)}
+                    </Animated.View>)}
             </View>
         </KeyboardAvoidingView>
     );
@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         paddingBottom: 100,
-        paddingTop: 120,
+        paddingTop: 100,
     },
     progressBar: {
         width: "55%",
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         padding: 20,
-        margin: 8,
+        margin: 4,
         borderRadius: 10,
         backgroundColor: "#1F3C4E",
         minWidth: 100,
@@ -331,7 +331,7 @@ const styles = StyleSheet.create({
     },
     cityName: {
         color: "#fff",
-        fontSize: 16,
+        fontSize: 14,
         marginTop: 8,
         textAlign: "center",
     },
@@ -373,8 +373,10 @@ const styles = StyleSheet.create({
     },
     nextBtnContainer: {
         position: "absolute",
-        top: 125,
+        top: 80,
         alignSelf: "center",
+        justifyContent: "center",
+        alignItems: "center"
     },
     nextBtn: {
         backgroundColor: "#E8F9FF",
@@ -386,5 +388,5 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "600",
         color: "#0F222D"
-    }
+    },
 });

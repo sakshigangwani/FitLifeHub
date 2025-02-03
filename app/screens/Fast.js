@@ -29,7 +29,7 @@ const Fast = ({navigation}) => {
     }, [progressBarWidth, fadeAnim]);
 
     function nextPressHandle() {
-        navigation.navigate("Target");
+        navigation.navigate("BottomNavigation");
     }
 
     function handleBox(event) {

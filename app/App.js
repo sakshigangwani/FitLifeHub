@@ -19,6 +19,11 @@ import Weight from './screens/Weight';
 import Fast from './screens/Fast';
 import Target from './screens/Target';
 import { UserProvider } from './context/UserContext';
+import Home from './screens/Home';
+import Gym from './screens/Gym';
+import BottomNavigation from './components/BottomNavigation';
+import Calculator from './screens/Calculator';
+import Account from './screens/Account';
 
 const Stack = createStackNavigator();
 
@@ -41,6 +46,11 @@ export default function App() {
             <Stack.Screen name='Weight' component={Weight} />
             <Stack.Screen name='Fast' component={Fast} />
             <Stack.Screen name='Target' component={Target} />
+            <Stack.Screen name='Home' component={Home} />
+            <Stack.Screen name='Gym' component={Gym} />
+            <Stack.Screen name='Calculator' component={Calculator} />
+            <Stack.Screen name='Account' component={Account} />
+            <Stack.Screen name='BottomNavigation' component={BottomNavigation} />
           </Stack.Navigator>
         </NavigationContainer>
       </UserProvider> {/* Close the UserProvider here */}
