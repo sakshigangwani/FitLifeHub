@@ -4,7 +4,7 @@ import { Avatar } from "react-native-paper";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useEffect, useRef } from "react";
 
-const Home = () => {
+const Home = ({navigation}) => {
     const popupAnim = useRef(new Animated.Value(0)).current;
     const fadeAnim = useRef(new Animated.Value(0)).current;
     const { name } = useUser();
@@ -24,6 +24,10 @@ const Home = () => {
             }),
         ]).start();
     }, [popupAnim, fadeAnim]);
+
+    function dietMealPress() {
+        navigation.navigate('DietMeal');
+    }
 
     return (
         <View style={styles.homeContainer}>
@@ -47,7 +51,7 @@ const Home = () => {
                 <TouchableOpacity style={styles.featureBtn}>
                     <Text>🍎 Calorie Calculator </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.featureBtn}>
+                <TouchableOpacity style={styles.featureBtn} onPress={dietMealPress}>
                     <Text>🥗 Diet & meal planning</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.featureBtn}>
