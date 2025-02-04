@@ -25,6 +25,7 @@ import BottomNavigation from './components/BottomNavigation';
 import Calculator from './screens/Calculator';
 import Account from './screens/Account';
 import DietMeal from './screens/DietMeal';
+import Snap from './screens/Snap';
 
 const Stack = createStackNavigator();
 
@@ -52,6 +53,7 @@ export default function App() {
             <Stack.Screen name='Calculator' component={Calculator} />
             <Stack.Screen name='Account' component={Account} />
             <Stack.Screen name='DietMeal' component={DietMeal} />
+            <Stack.Screen name='Snap' component={Snap} />
             <Stack.Screen name='BottomNavigation' component={BottomNavigation} />
           </Stack.Navigator>
         </NavigationContainer>

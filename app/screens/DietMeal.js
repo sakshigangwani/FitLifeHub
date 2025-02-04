@@ -5,7 +5,10 @@ import { Divider } from 'react-native-paper';
 //Screen width
 const { width } = Dimensions.get("window");
 
-const DietMeal = () => {
+const DietMeal = ({navigation}) => {
+    function onPressPlus() {
+        navigation.navigate("Snap");
+    }
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}
             keyboardShouldPersistTaps="handled">
@@ -32,7 +35,7 @@ const DietMeal = () => {
                         <Text style={styles.breakfastHeadingText}>Breakfast</Text>
                         <View style={styles.breakfastCalorie}>
                             <Text style={styles.breakfastCalorieText}>0 of 512 Cal</Text>
-                            <Icon name="plus-circle" size={20} color="#E82561" />
+                            <Icon name="plus-circle" size={20} color="#E82561" onPress={onPressPlus}/>
                         </View>
                     </View>
                     <View style={styles.breakfastBox}>
@@ -46,7 +49,7 @@ const DietMeal = () => {
                         <Text style={styles.breakfastHeadingText}>Morning Snack</Text>
                         <View style={styles.breakfastCalorie}>
                             <Text style={styles.breakfastCalorieText}>0 of 256 Cal</Text>
-                            <Icon name="plus-circle" size={20} color="#E82561" />
+                            <Icon name="plus-circle" size={20} color="#E82561" onPress={onPressPlus}/>
                         </View>
                     </View>
                     <View style={styles.breakfastBox}>
@@ -60,7 +63,7 @@ const DietMeal = () => {
                         <Text style={styles.breakfastHeadingText}>Lunch</Text>
                         <View style={styles.breakfastCalorie}>
                             <Text style={styles.breakfastCalorieText}>0 of 512 Cal</Text>
-                            <Icon name="plus-circle" size={20} color="#E82561" />
+                            <Icon name="plus-circle" size={20} color="#E82561" onPress={onPressPlus}/>
                         </View>
                     </View>
                     <View style={styles.breakfastBox}>
@@ -74,7 +77,7 @@ const DietMeal = () => {
                         <Text style={styles.breakfastHeadingText}>Evening Snack</Text>
                         <View style={styles.breakfastCalorie}>
                             <Text style={styles.breakfastCalorieText}>0 of 256 Cal</Text>
-                            <Icon name="plus-circle" size={20} color="#E82561" />
+                            <Icon name="plus-circle" size={20} color="#E82561" onPress={onPressPlus}/>
                         </View>
                     </View>
                     <View style={styles.breakfastBox}>
@@ -88,7 +91,7 @@ const DietMeal = () => {
                         <Text style={styles.breakfastHeadingText}>Dinner</Text>
                         <View style={styles.breakfastCalorie}>
                             <Text style={styles.breakfastCalorieText}>0 of 512 Cal</Text>
-                            <Icon name="plus-circle" size={20} color="#E82561" />
+                            <Icon name="plus-circle" size={20} color="#E82561" onPress={onPressPlus}/>
                         </View>
                     </View>
                     <View style={styles.breakfastBox}>
