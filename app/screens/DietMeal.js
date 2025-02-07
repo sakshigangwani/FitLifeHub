@@ -9,6 +9,11 @@ const DietMeal = ({navigation}) => {
     function onPressPlus() {
         navigation.navigate("Snap");
     }
+
+    function onPressDietPlan()
+    {
+        navigation.navigate("DietPref");
+    }
     return (
         <ScrollView contentContainerStyle={styles.scrollContainer}
             keyboardShouldPersistTaps="handled">
@@ -16,7 +21,7 @@ const DietMeal = ({navigation}) => {
                 <Text style={styles.heading}>Today</Text>
                 <Image source={require('../assets/images/women.png')} style={styles.img} />
                 <View style={styles.threeBtns}>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={onPressDietPlan}>
                         <Icon name="apple" size={20} color="white" />
                         <Text style={styles.buttonText}>Diet Plan</Text>
                     </TouchableOpacity>
