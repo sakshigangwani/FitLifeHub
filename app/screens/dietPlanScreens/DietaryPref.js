@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { StyleSheet, View, Animated, Text, TouchableOpacity } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-const DietaryPref = () => {
+const DietaryPref = ({navigation}) => {
     const progressAnim = useRef(new Animated.Value(0)).current; // Start with width 0
     const [progressBarWidth, setProgressBarWidth] = useState(0); // Stores the full width of the progress ba
     const [selectedElement, setSelectedElement] = useState("");
@@ -19,6 +19,10 @@ const DietaryPref = () => {
 
     function selectElement() {
         setSelectedElement("nonveg");
+    }
+
+    function nextPressHandle() {
+        navigation.navigate("Exclude")
     }
 
     return (
@@ -56,7 +60,7 @@ const DietaryPref = () => {
                     </View>
                 </TouchableOpacity>
                 <View style={styles.nextBtnContainer}>
-                    <TouchableOpacity style={styles.nextBtn}>
+                    <TouchableOpacity style={styles.nextBtn} onPress={nextPressHandle}>
                         <Text style={styles.nextBtnText}>Next</Text>
                     </TouchableOpacity>
                 </View>
