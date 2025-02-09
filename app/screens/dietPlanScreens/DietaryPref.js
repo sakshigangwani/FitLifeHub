@@ -3,8 +3,8 @@ import { StyleSheet, View, Animated, Text, TouchableOpacity } from "react-native
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const DietaryPref = ({navigation}) => {
-    const progressAnim = useRef(new Animated.Value(0)).current; // Start with width 0
-    const [progressBarWidth, setProgressBarWidth] = useState(0); // Stores the full width of the progress ba
+    const progressAnim = useRef(new Animated.Value(0)).current; 
+    const [progressBarWidth, setProgressBarWidth] = useState(0); 
     const [selectedElement, setSelectedElement] = useState("");
 
     useEffect(() => {
